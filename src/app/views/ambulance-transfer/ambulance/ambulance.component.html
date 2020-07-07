@@ -1,0 +1,22 @@
+
+<table class="table table-hover table-striped">
+    <thead>
+    <tr>
+        <th>Ambulancia</th>
+        <th>Estado</th>
+        <th>Pasajeros</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let ambulance of ambulances">
+        <td class="align-middle">{{ambulance.id}}</td>
+        <td class="align-middle">{{ambulance.status | statusToStatusMessage}}</td>
+        <td class="group">
+            <div class="group-item" *ngFor="let passenger of group | filterByAmbulanceId: ambulance.id">
+                <mat-button-toggle (click)="transfer(passenger.id)">{{passenger.id}}</mat-button-toggle>
+            </div>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
