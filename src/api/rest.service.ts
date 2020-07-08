@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {environment} from '../environments/environment';
 
 /**
  * Rest Service that connects with the Backend API
@@ -10,7 +11,7 @@ import {Observable} from 'rxjs';
 })
 export class RestService {
 
-    private endpoint = 'http://localhost:8080/';
+    private endpoint = 'http://' + environment.host + ':' + environment.port + '/';
     private httpOptions = {
         headers: new HttpHeaders({
             'Content-Type': 'application/json'

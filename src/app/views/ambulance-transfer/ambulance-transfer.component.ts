@@ -23,11 +23,11 @@ export class AmbulanceTransferComponent implements OnInit {
                 this.ambulances = response;
             });
             this.api.getJourney().subscribe(response => {
-                this.journey = response.filter( journey => {
+                this.journey = response.filter(journey => {
                     return journey.status !== 'END';
                 });
-                this.groupOnAmbulance = response.filter( journey => {
-                    return journey.status === 'ONBOARD' ||  journey.status === 'TRAVELING';
+                this.groupOnAmbulance = response.filter(journey => {
+                    return journey.status === 'ONBOARD' || journey.status === 'TRAVELING';
                 });
             });
         }, 1000);
